@@ -1,6 +1,4 @@
-Certainly! Below is an example of a README.md file for your e-commerce website developed using Django. You can customize it further based on the specifics of your project:
 
-```markdown
 # E-Commerce Website using Django
 
 This is an e-commerce website project built with Django, a high-level Python web framework. The project aims to provide a platform for users to browse products, add them to their cart, and complete purchases securely.
