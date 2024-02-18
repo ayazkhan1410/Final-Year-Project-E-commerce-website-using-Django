@@ -15,5 +15,9 @@ urlpatterns = [
     path('index_inverse_header', views.index_inverse_header, name='index_inverse_header'),
     path('my_account', views.my_account, name='my_account'),
     path('product_detail', views.product_detail, name='product_detail'),
-    path('product', views.product, name='product')
+    path('product', views.product, name='product'),
+    path('order_tracking', views.order_tracking, name='order_tracking'),
+    path('login', views.login_page, name='login'),
+    path('register', views.register, name='register'),
+    
 ]

@@ -44,3 +44,12 @@ def product_detail(request):
 
 def product(request):
     return render(request, 'product.html')
+
+def order_tracking(request):
+    return render(request, 'order_tracking.html')
+
+def login_page(request):
+    return render(request, 'login.html')
+
+def register(request):
+    return render(request, 'register.html')
