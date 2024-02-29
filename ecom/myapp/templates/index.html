@@ -47,9 +47,9 @@
                         <li><a href="{% url 'order_tracking' %}">Order Tracker</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#">Career</a></li>
+                        <!-- <li><a href="#">Career</a></li>
                         <li><a href="#">Our Forum</a></li>
-                        <li><a href="#">Newsletter</a></li>
+                        <li><a href="#">Newsletter</a></li> -->
                         <li><a href="#"><i class="fa fa-facebook f-s-14"></i></a></li>
                         <li><a href="#"><i class="fa fa-twitter f-s-14"></i></a></li>
                         <li><a href="#"><i class="fa fa-instagram f-s-14"></i></a></li>
@@ -99,15 +99,21 @@
                                 <!-- BEGIN dropdown-menu-sidebar -->
                                 <div class="dropdown-menu-sidebar">
                                     <h4 class="title">Shop By Categories</h4>
-                                    <ul class="dropdown-menu-list">
-                                        <li><a href="/product">Mobile Phone <i class="fa fa-angle-right pull-right"></i></a></li>
-                                        <li><a href="/product">Tablet <i class="fa fa-angle-right pull-right"></i></a></li>
+
+                                    <ul class="dropdown-menu-list"> 
+
+                                        {% for c in category %}
+                                        <li><a href="{% url 'product' %}">{{ c.category }} <i class="fa fa-angle-right pull-right"></i></a></li>
+                                        {% endfor %}
+
+                                        <!-- <li><a href="/product">Tablet <i class="fa fa-angle-right pull-right"></i></a></li>
                                         <li><a href="/product">Laptop <i class="fa fa-angle-right pull-right"></i></a></li>
                                         <li><a href="/product">Desktop <i class="fa fa-angle-right pull-right"></i></a></li>
                                         <li><a href="/product">TV <i class="fa fa-angle-right pull-right"></i></a></li>
                                         <li><a href="/product">Speaker <i class="fa fa-angle-right pull-right"></i></a></li>
-                                        <li><a href="/product">Gadget <i class="fa fa-angle-right pull-right"></i></a></li>
+                                        <li><a href="/product">Gadget <i class="fa fa-angle-right pull-right"></i></a></li> -->
                                     </ul>
+                               
                                 </div>
                                 <!-- END dropdown-menu-sidebar -->
                                 <!-- BEGIN dropdown-menu-content -->
@@ -174,16 +180,21 @@
                             <i class="fa fa-angle-down"></i> 
                             <span class="arrow top"></span>
                         </a>
+
+
                         <ul class="dropdown-menu">
-                            <li><a href="/product">Mobile Phone</a></li>
-                            <li><a href="/product">Tablet</a></li>
+                            {% for c in category %}
+                            <li><a href="{% url 'product' %}">{{c.category}}</a></li>
+                            {% endfor %}
+                            <!-- <li><a href="/product">Tablet</a></li>
                             <li><a href="/product">TV</a></li>
                             <li><a href="/product">Desktop</a></li>
                             <li><a href="/product">Laptop</a></li>
                             <li><a href="/product">Speaker</a></li>
-                            <li><a href="/product">Gadget</a></li>
+                            <li><a href="/product">Gadget</a></li> -->
                         </ul>
                     </li>
+
                     <li><a href="/product">New Arrival</a></li>
                     <li class="dropdown dropdown-hover">
                         <a href="#" data-toggle="dropdown">
@@ -191,6 +202,7 @@
                             <i class="fa fa-angle-down"></i> 
                             <span class="arrow top"></span>
                         </a>
+
                         <ul class="dropdown-menu">
                             <li><a href="/">Home (Default)</a></li>
                             <li><a href="/search_results">Search Results</a></li>
@@ -206,20 +218,27 @@
                             <li><a href="/faq">FAQ</a></li>
                         </ul>
                     </li>
+
                     <li class="dropdown dropdown-hover">
                         <a href="#" data-toggle="dropdown">
                             <i class="fa fa-search search-btn"></i>
                             <span class="arrow top"></span>
                         </a>
+
                         <div class="dropdown-menu p-15">
-                            <form action="/search_results" method="POST" name="search_form">
+
+                            <form method="POST">
+                                {% csrf_token %}
                                 <div class="input-group">
-                                    <input type="text" placeholder="Search" class="form-control bg-silver-lighter" />
+                                    <input type="text" placeholder="Search" name="search" class="form-control bg-silver-lighter"/>
+                                    
                                     <span class="input-group-btn">
                                         <button class="btn btn-inverse" type="submit"><i class="fa fa-search"></i></button>
                                     </span>
+
                                 </div>
                             </form>
+
                         </div> 
                     </li>
                 </ul>

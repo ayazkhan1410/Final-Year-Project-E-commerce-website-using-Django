@@ -24,8 +24,14 @@
                             Sed eget tellus neque. Nam feugiat magna turpis. Vestibulum pharetra nibh et pretium efficitur. Donec porta sollicitudin laoreet. 
                             Sed a condimentum urna. Curabitur placerat ornare venenatis. Cras iaculis venenatis imperdiet.
                         </p>
-                        <form class="form-horizontal" name="contact_us_form" action="contact_us.html" method="POST">
+
+                        {% include 'alert.html' %}
+
+                        <form method="post">
+                            {% csrf_token %}
+
                             <div class="form-group">
+
                                 <label class="control-label col-md-3">Name <span class="text-danger">*</span></label>
                                 <div class="col-md-7">
                                     <input type="text" class="form-control"  name="name" />
@@ -55,8 +61,10 @@
                                     <button type="submit" class="btn btn-inverse btn-lg">Send Message</button>
                                 </div>
                             </div>
+
                         </form>
                     </div>
+
                     <!-- END col-8 -->
                     <!-- BEGIN col-4 -->
                     <div class="col-md-4">
@@ -92,5 +100,6 @@
             <!-- END row -->
         </div>
         <!-- END #product -->
-        
+    </div>
+</div>
 {% endblock %}

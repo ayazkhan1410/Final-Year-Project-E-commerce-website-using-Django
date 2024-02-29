@@ -26,6 +26,7 @@ class AdminCategory(admin.ModelAdmin):
 class AdminCompany(admin.ModelAdmin):
     list_display = [
         "company",
+        "category",
         "is_active"
     ]
     search_fields = ['company']
@@ -88,7 +89,7 @@ class AdminAdditionalInformation(admin.ModelAdmin):
         "feature",
         "product_description1",
         "product_description2",
-        "product_image"
+        # "product_image"
     ]
     search_fields = ['product']
     list_per_page = 10

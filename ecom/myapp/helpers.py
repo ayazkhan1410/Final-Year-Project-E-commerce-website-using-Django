@@ -6,7 +6,7 @@ class Manager(BaseUserManager):
             raise ValueError('The Email is required')
         email = self.normalize_email(email)
         user = self.model(email = email, **extra_fields)
-        user.set_password = password
+        user.set_password(password)  # Corrected line
         user.save(using = self._db)
         return user
     
@@ -14,7 +14,7 @@ class Manager(BaseUserManager):
         
         extra_fields.setdefault('is_staff', True)
         extra_fields.setdefault('is_superuser', True)
-        extra_fields.setdefault('is_actice', True)
+        extra_fields.setdefault('is_active', True)
         
         if extra_fields.get('is_staff') is not True:
             raise ValueError('Superuser must have is_staff = True')
